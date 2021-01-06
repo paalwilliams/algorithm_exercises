@@ -1,0 +1,1 @@
+1. Write a JavaScript program to calculate the factorial of a number. 
