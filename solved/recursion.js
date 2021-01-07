@@ -73,6 +73,13 @@ const isEven = (num) => {
 // Sample array : [0,1,2,3,4,5,6]
 // console.log(l.br_search(5)) will return '5'
 
+const binarySearch = (array, item, i=0) => {
+  if (array[i] == item) {
+    return i;
+  }
+  i++;
+  binarySearch(array, item, i);  
+}
 
 
 
