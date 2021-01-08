@@ -7,7 +7,7 @@ const factorial = (num, result = 1) => {
       return result;
     }
     result *= num;
-      factorial(num - 1, result);
+    return factorial(num - 1, result);
   }
   
 factorial(5);
@@ -26,7 +26,7 @@ const range = (x, y, result = []) => {
       return;
     }
     result.push(x + 1)
-    range(x + 1, y, result);  
+    return range(x + 1, y, result);  
   }
   
 range(2, 9)
@@ -41,7 +41,7 @@ const sumArray = (array, result=0) => {
       return result;
     }
     result += array.shift();
-    sumArray(array, result)
+    return sumArray(array, result)
   }
     
 
@@ -54,19 +54,25 @@ const sumArray = (array, result=0) => {
 // 6. Write a JavaScript program to get the first n Fibonacci numbers. Go to the editor
 // Note : The Fibonacci Sequence is the series of numbers: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, . . . Each subsequent number is the sum of the previous two.
 
+const fibonacci = (len, result=[0, 1]) => {
+  if(result.length === len) {
+    return result;
+  }
+  result.push(result[result.length - 1] + result[result.length -2]);
+  return fibonacci(len, result);
+}
+fibonacci(5);
+
 
 
 // 7. Write a JavaScript program to check whether a number is even or not. Go to the editor
 const isEven = (num) => { 
-    if( num < 0) {
-      return false;
+    if( (num - 2) < 1 ) {
+      return num === 0
     }
-    else if (num == 0) {
-      return true;
-    }
-    isEven(num - 2);
+    return isEven(num - 2);
   }
-  isEven(2)
+isEven(2)
 
 
 // 8. Write a JavaScript program for binary search.
@@ -78,7 +84,7 @@ const binarySearch = (array, item, i=0) => {
     return i;
   }
   i++;
-  binarySearch(array, item, i);  
+  return binarySearch(array, item, i);  
 }
 
 
